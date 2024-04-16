@@ -121,7 +121,8 @@ public class VendedorDAO {
             		vendedor.setId(rs.getInt("id"));
 					vendedor.setNome(rs.getString("nome"));
 					vendedor.setCpf(rs.getString("cpf"));
-					vendedor.setFilial(new Filial(rs.getInt("id")));
+					FilialDAO fiDAO = new FilialDAO();
+					vendedor.setFilial(fiDAO.buscarFilalPorVendedor(rs.getInt("id")));
             		
                	}
             	
